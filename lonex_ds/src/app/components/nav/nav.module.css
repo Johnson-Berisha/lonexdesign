@@ -1,0 +1,23 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--box);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--foreground);
+}
+
+.nav .menu {
+    display: flex;
+    gap: 15px;
+}
+
+.nav .menu li {
+    list-style: none;
+}
