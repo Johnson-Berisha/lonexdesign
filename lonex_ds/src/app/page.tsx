@@ -16,30 +16,65 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <section className="bento-grid">
-        <div className="bento-tile tile-large">
-          <div>
-            <h3>Ultra Lightweight</h3>
-            <p>Optimized for speed. No bloat, just pure CSS variables and utility classes.</p>
+      <div className="bento-container">
+
+        <div className="bento-tile tile-main has-glow glow-blue">
+          <div className="tile-content">
+            <div>
+              <h3>Ultra Lightweight</h3>
+              <p>Optimized for Core Web Vitals. No unnecessary bloat or heavy runtimes—just pure, high-performance CSS.</p>
+            </div>
+
+            <div className="stat-container">
+              <div className="stat-value">1.2<span className="stat-unit">kb</span></div>
+              <div className="visual-chart">
+                <div className="bar bar-1"></div>
+                <div className="bar bar-2"></div>
+                <div className="bar bar-3"></div>
+                <div className="bar bar-4"></div>
+                <div className="bar bar-5"></div>
+              </div>
+            </div>
           </div>
-          <div className="stat">1.2<span>kb</span></div>
         </div>
 
-        <div className="bento-tile tile-wide">
-          <h3>Built for Modernity</h3>
-          <p>Seamless integration with <span className="accent-blue">React</span>, <span className="accent-blue">Vue</span>, and <span className="accent-blue">Vanilla JS</span>.</p>
+        <div className="bento-tile tile-wide has-glow glow-purple">
+          <div className="tile-content">
+            <div>
+              <h3>Built for Modernity</h3>
+              <p>Seamlessly integrates with your existing framework of choice.</p>
+              <div className="pills-row">
+                <span className="pill-small pill-blue"><span className="dot"></span> React</span>
+                <span className="pill-small pill-green"><span className="dot"></span> Vue</span>
+                <span className="pill-small pill-yellow"><span className="dot"></span> Svelte</span>
+              </div>
+            </div>
+          </div>
+          <div className="decorative-code">
+            import Lonex from '@lonex_ds';
+          </div>
         </div>
 
         <div className="bento-tile">
           <h3>Typography</h3>
-          <p>Aa Bb Cc</p>
+          <p>A balanced, readable scale.</p>
+          <div className="type-preview">
+            <span className="type-bg">Aa</span>
+            <span className="type-fg">Aa</span>
+          </div>
         </div>
 
-        <div className="bento-tile">
+        <div className="bento-tile tile-dark-mode">
           <h3>Native Dark Mode</h3>
-          <p>Auto-sensing themes.</p>
+          <p>Auto-sensing themes via prefers-color-scheme.</p>
+          <div className="theme-toggle">
+            <div className="toggle-track">
+              <div className="toggle-thumb"></div>
+            </div>
+          </div>
         </div>
-      </section>
+
+      </div>
       <ThemeToggle />
     </div>
   );
