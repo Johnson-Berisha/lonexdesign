@@ -22,7 +22,7 @@ export default function Home() {
           <div className="tile-content">
             <div>
               <h3>Ultra Lightweight</h3>
-              <p>Optimized for Core Web Vitals. No unnecessary bloat or heavy runtimes—just pure, high-performance CSS.</p>
+              <p>Optimized for Core Web Vitals. No unnecessary bloat or heavy runtimes; just pure, high-performance CSS.</p>
             </div>
 
             <div className="stat-container">

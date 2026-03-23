@@ -116,7 +116,7 @@ h1.hero_heading::after {
 
 
 .hero .cta-row a.btn.btn-secondary {
-  background-color: transparent;
+  background-color: hsla(0, 0%, 0%, 0.295);
   color: var(--foreground);
 }
 
