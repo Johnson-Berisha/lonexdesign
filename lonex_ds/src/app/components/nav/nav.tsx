@@ -14,6 +14,11 @@ const Nav: React.FC = () => (
             <li>
                 <Link href="/contact">Contact</Link>
             </li>
+            <li>
+                <Link href="#" className={styles.primary}>
+                    Components
+                </Link>
+            </li>
         </ul>
     </nav>
 );

@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 40px;
+    padding: 15px;
     background-color: var(--box);
     border: 1px solid var(--border);
     margin: 20px auto;
@@ -29,4 +29,15 @@
 .nav .menu li a {
     color: var(--text-muted);
     font-weight: 500;
+}
+
+.nav .menu li a:hover {
+    color: var(--foreground);
+}
+
+.nav .menu li a.primary {
+    border: 1px solid var(--border);
+    background-color: hsl(0, 0, 15%);
+    padding: 5px 10px;
+    border-radius: 100px;
 }
