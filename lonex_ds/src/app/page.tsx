@@ -11,7 +11,7 @@ export default function Home() {
           <Link href="#get-started" className="btn">
             Get Started
           </Link>
-          <Link href="#" className="btn btn-secondary">
+          <Link href="/lds_components" className="btn btn-secondary">
             View Components
           </Link>
         </div>
