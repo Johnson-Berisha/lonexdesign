@@ -1,6 +1,13 @@
+"use client";
+
 import styles from "./componentsLibrary.module.css";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function componentsLibrary() {
+    const [activeVariant, setActiveVariant] = useState("Primary");
+    const options = ['Primary', 'Secondary', 'Ghost'];
+
     return (
         <main>
             <div className={styles.container}>
@@ -22,6 +29,10 @@ export default function componentsLibrary() {
                 </aside>
                 <main className={styles.mainContent}>
                     <section className={styles.componentHeader}>
+                        <div className={styles.breadcrumb}>
+                            <span className={styles.breadcrumbItem}>Components</span>
+                            <span className={styles.breadcrumbItem}>Buttons</span>
+                        </div>
                         <h1>Button</h1>
                         <p>It's a button, what else can I say?</p>
                     </section>
@@ -36,6 +47,38 @@ export default function componentsLibrary() {
                         </div>
                     </section>
                 </main>
+                <aside className={[styles.sidebar, styles.controls].join(" ")}>
+                    <h3>Properties</h3>
+                    <div className={styles.propertyGroup}>
+                        <label className={styles.propertyLabel}>Variant</label>
+                        <div className={styles.segmentedControl}>
+                            {options.map((opt) => (
+                                <button
+                                    key={opt}
+                                    onClick={() => setActiveVariant(opt)}
+                                    className={`${styles.segmentBtn} ${activeVariant === opt ? styles.activeText : ''}`}
+                                >
+                                    {activeVariant === opt && (
+                                        <motion.div
+                                            layoutId="active-pill"
+                                            className={styles.activeBackground}
+                                            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                                        />
+                                    )}
+                                    <span className={styles.btnLabel}>{opt}</span>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className={styles.propertyGroupInline}>
+                        <label className={styles.propertyLabel}>Disabled</label>
+                        <label className={styles.switch}>
+                            <input type="checkbox" />
+                            <span className={styles.slider}></span>
+                        </label>
+                    </div>
+                </aside>
             </div>
         </main>
     );
