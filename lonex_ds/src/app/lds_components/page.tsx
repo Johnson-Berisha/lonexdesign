@@ -1,12 +1,9 @@
-"use client";
-
 import styles from "./componentsLibrary.module.css";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { fetchComponent } from "@/lib/fetchComponents";
+import ClientComponent from "./ClientComponent";
 
-export default function componentsLibrary() {
-    const [activeVariant, setActiveVariant] = useState("Primary");
-    const options = ['Primary', 'Secondary', 'Ghost'];
+export default async function componentsLibrary() {
+    const componentData = await fetchComponent("btn");
 
     return (
         <main>
@@ -31,10 +28,10 @@ export default function componentsLibrary() {
                     <section className={styles.componentHeader}>
                         <div className={styles.breadcrumb}>
                             <span className={styles.breadcrumbItem}>Components</span>
-                            <span className={styles.breadcrumbItem}>Buttons</span>
+                            <span className={styles.breadcrumbItem}>{componentData.category}</span>
                         </div>
-                        <h1>Button</h1>
-                        <p>It's a button, what else can I say?</p>
+                        <h1>{componentData.name}</h1>
+                        <p>{componentData.description}</p>
                     </section>
                     <section className={styles.previewStage}>
                         <div className="canvas">
@@ -43,41 +40,16 @@ export default function componentsLibrary() {
                     </section>
                     <section className={styles.codePreview}>
                         <div className={styles.codeBlock}>
-                            <code>&lt;button class="lds-btn"&gt;Button&lt;/button&gt;</code>
+                            <code>{componentData.code}</code>
                         </div>
                     </section>
                 </main>
                 <aside className={[styles.sidebar, styles.controls].join(" ")}>
                     <h3>Properties</h3>
                     <div className={styles.propertyGroup}>
-                        <label className={styles.propertyLabel}>Variant</label>
-                        <div className={styles.segmentedControl}>
-                            {options.map((opt) => (
-                                <button
-                                    key={opt}
-                                    onClick={() => setActiveVariant(opt)}
-                                    className={`${styles.segmentBtn} ${activeVariant === opt ? styles.activeText : ''}`}
-                                >
-                                    {activeVariant === opt && (
-                                        <motion.div
-                                            layoutId="active-pill"
-                                            className={styles.activeBackground}
-                                            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                                        />
-                                    )}
-                                    <span className={styles.btnLabel}>{opt}</span>
-                                </button>
-                            ))}
-                        </div>
+                        <pre className={styles.propsDisplay}>{componentData.props}</pre>
                     </div>
-
-                    <div className={styles.propertyGroupInline}>
-                        <label className={styles.propertyLabel}>Disabled</label>
-                        <label className={styles.switch}>
-                            <input type="checkbox" />
-                            <span className={styles.slider}></span>
-                        </label>
-                    </div>
+                    <ClientComponent />
                 </aside>
             </div>
         </main>
