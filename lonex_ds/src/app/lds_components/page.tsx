@@ -3,21 +3,38 @@ import { fetchComponent } from "@/lib/fetchComponents";
 import { parseComponentProps } from "@/lib/parseProps";
 import ClientComponent from "./ClientComponent";
 import * as Components from "../components";
+import Link from "next/link";
+import React from "react";
 
-// Define a registry of components linked to CMS names
 const components: Record<string, React.ComponentType<any>> = {
     "button": Components.Btn,
-    "btn": Components.Btn,
-    "alert": Components.Alert, // Map CMS component names to React components
-    // Add more mappings as needed, e.g., "card": Components.Card
+    "alert": Components.Alert,
+    // "card": Components.Card,
 };
 
-export default async function componentsLibrary() {
-    const componentData = await fetchComponent("alert");
+export default async function componentsLibrary({ searchParams }: { searchParams: Promise<{ component?: string }> }) {
+    const resolvedSearchParams = await searchParams;
+    const componentName = resolvedSearchParams?.component || "alert";
+
+    let componentData;
+    try {
+        componentData = await fetchComponent(componentName);
+    } catch (error) {
+        // Fallback data if fetch fails
+        componentData = {
+            name: "Unknown",
+            slug: componentName,
+            category: "Unknown",
+            description: "Component data not found in CMS.",
+            code: "// No code available",
+            props: "{}"
+        };
+    }
+
     const propOptions = parseComponentProps(componentData.props);
 
     // Get the component from the registry
-    const Component = components[componentData.name.toLowerCase()]; // Assuming name is case-insensitive
+    const Component = components[componentData.name.toLowerCase()];
 
     return (
         <main>
@@ -25,17 +42,18 @@ export default async function componentsLibrary() {
                 <aside className={styles.sidebar}>
                     <span className={styles.subtitle}>COMPONENTS</span>
                     <ul className={styles.componentList}>
-                        <li className={styles.componentItem}>Buttons</li>
-                        <li className={styles.componentItem}>Cards</li>
+                        <Link href="?component=btn"><li className={styles.componentItem}>Buttons</li></Link>
+                        {/* <Link href="?component=card"><li className={styles.componentItem}>Cards</li></Link> */}
+                        <Link href="?component=alert"><li className={styles.componentItem}>Alerts</li></Link>
                         <li className={styles.componentItem}>Modals</li>
                         <li className={styles.componentItem}>Forms</li>
                         <li className={styles.componentItem}>Typography</li>
                     </ul>
-                    <span className={styles.subtitle}>MODULES</span>
+                    <span className={styles.subtitle}>TOKENS</span>
                     <ul className={styles.componentList}>
-                        <li className={styles.componentItem}>Buttons</li>
-                        <li className={styles.componentItem}>Cards</li>
-                        <li className={styles.componentItem}>Modals</li>
+                        <li className={styles.componentItem}>Colors</li>
+                        <li className={styles.componentItem}>Typography</li>
+                        <li className={styles.componentItem}>Motion</li>
                     </ul>
                 </aside>
                 <main className={styles.mainContent}>
