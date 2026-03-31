@@ -14,7 +14,7 @@ const components: Record<string, React.ComponentType<any>> = {
 
 export default async function componentsLibrary({ searchParams }: { searchParams: Promise<{ component?: string }> }) {
     const resolvedSearchParams = await searchParams;
-    const componentName = resolvedSearchParams?.component || "alert";
+    const componentName = resolvedSearchParams?.component || "btn";
 
     let componentData;
     try {
