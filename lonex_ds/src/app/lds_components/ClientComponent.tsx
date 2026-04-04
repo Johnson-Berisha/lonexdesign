@@ -1,18 +1,24 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./componentsLibrary.module.css";
 import { PropOption } from "@/lib/parseProps";
 
 interface ClientComponentProps {
     propOptions: PropOption[];
+    selectedValues: Record<string, string>;
+    toggledProps: Record<string, boolean>;
+    setSelectedValues: React.Dispatch<React.SetStateAction<Record<string, string>>>;
+    setToggledProps: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
 }
 
-export default function ClientComponent({ propOptions }: ClientComponentProps) {
-    const [selectedValues, setSelectedValues] = useState<Record<string, string>>({});
-    const [toggledProps, setToggledProps] = useState<Record<string, boolean>>({});
-
+export default function ClientComponent({
+    propOptions,
+    selectedValues,
+    toggledProps,
+    setSelectedValues,
+    setToggledProps,
+}: ClientComponentProps) {
     const handleSelectChange = (propName: string, value: string) => {
         setSelectedValues((prev) => ({
             ...prev,

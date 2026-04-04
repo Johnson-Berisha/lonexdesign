@@ -1,7 +1,7 @@
 import styles from "./componentsLibrary.module.css";
 import { fetchComponent } from "@/lib/fetchComponents";
 import { parseComponentProps } from "@/lib/parseProps";
-import ClientComponent from "./ClientComponent";
+import ControlsWithPreview from "./ControlsWithPreview";
 import * as Components from "../components";
 import Link from "next/link";
 import React from "react";
@@ -78,7 +78,7 @@ export default async function componentsLibrary({ searchParams }: { searchParams
                 </main>
                 <aside className={[styles.sidebar, styles.controls].join(" ")}>
                     <h3>Properties</h3>
-                    <ClientComponent propOptions={propOptions} />
+                    <ControlsWithPreview Component={Component} propOptions={propOptions} />
                 </aside>
             </div>
         </main>
