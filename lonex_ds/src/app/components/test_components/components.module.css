@@ -1,0 +1,16 @@
+.btnPrimary {
+    background-color: var(--box);
+    padding: 10px 20px;
+    border-radius: 500px;
+    border: 1px solid var(--border);
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.alertWarning {
+    background-color: #c32e2e4f;
+    border: 1px solid #c32e2e;
+}

@@ -1,6 +1,8 @@
+import styles from './components.module.css';
+
 const Btn: React.FC = () => {
     return (
-        <button className="btn-primary">Primary Button</button>
+        <button className={styles.btnPrimary}>Primary Button</button>
     )
 }
 
