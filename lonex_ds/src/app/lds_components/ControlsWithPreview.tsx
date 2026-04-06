@@ -18,9 +18,6 @@ export default function ControlsWithPreview({ Component, propOptions }: previewP
             <div className="canvas">
                 <Component {...selectedValues} {...toggledProps} />
             </div>
-            <div className="debug">
-                <pre>{JSON.stringify({ selectedValues, toggledProps }, null, 2)}</pre>
-            </div>
             <ClientComponent
                 propOptions={propOptions}
                 selectedValues={selectedValues}
