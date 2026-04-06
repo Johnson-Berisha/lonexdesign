@@ -2,6 +2,7 @@ export interface PropOption {
     name: string;
     type: "toggle" | "select";
     values?: string[];
+    default?: string | boolean;
 }
 
 export function parseComponentProps(propsString: string): PropOption[] {
@@ -24,19 +25,36 @@ export function parseComponentProps(propsString: string): PropOption[] {
             const valueStr = String(value).trim();
 
             // Check if it's a boolean type
-            if (valueStr.toLowerCase() === "boolean") {
+            if (valueStr.toLowerCase().startsWith("boolean")) {
+                // Extract default for boolean: "boolean:true" or "boolean:false"
+                let defaultValue: boolean | undefined;
+                const boolMatch = valueStr.match(/boolean:(?:true|false)/i);
+                if (boolMatch) {
+                    defaultValue = boolMatch[0].toLowerCase().endsWith("true");
+                }
                 options.push({
                     name: key,
                     type: "toggle",
+                    default: defaultValue,
                 });
             } else {
                 // Otherwise treat as select with pipe-separated values
                 const values = valueStr.split("|").map((v) => v.trim());
+                let defaultValue: string | undefined;
+
+                // Check for default:value syntax
+                const defaultIndex = values.findIndex((v) => v.startsWith("default:"));
+                if (defaultIndex !== -1) {
+                    defaultValue = values[defaultIndex].split(":")[1];
+                    values.splice(defaultIndex, 1); // Remove default from values array
+                }
+
                 if (values.length > 0) {
                     options.push({
                         name: key,
                         type: "select",
                         values,
+                        default: defaultValue,
                     });
                 }
             }

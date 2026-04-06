@@ -21,8 +21,26 @@ interface previewProps {
 }
 
 export default function ControlsWithPreview({ Component, propOptions, componentData }: previewProps) {
-    const [selectedValues, setSelectedValues] = React.useState<Record<string, any>>({});
-    const [toggledProps, setToggledProps] = React.useState<Record<string, boolean>>({});
+    // Initialize with defaults from propOptions
+    const initializeDefaults = () => {
+        const selected: Record<string, any> = {};
+        const toggled: Record<string, boolean> = {};
+
+        propOptions.forEach((option) => {
+            if (option.type === "select" && option.default) {
+                selected[option.name] = option.default;
+            }
+            if (option.type === "toggle" && typeof option.default === "boolean") {
+                toggled[option.name] = option.default;
+            }
+        });
+
+        return { selected, toggled };
+    };
+
+    const defaults = initializeDefaults();
+    const [selectedValues, setSelectedValues] = React.useState<Record<string, any>>(defaults.selected);
+    const [toggledProps, setToggledProps] = React.useState<Record<string, boolean>>(defaults.toggled);
 
     return (
         <>
