@@ -77,7 +77,7 @@
 }
 
 .previewStage {
-    background: var(--box);
+    background: #0f0f0fa4;
     border: 1px solid var(--border);
     border-radius: 16px;
     margin: 32px 0;

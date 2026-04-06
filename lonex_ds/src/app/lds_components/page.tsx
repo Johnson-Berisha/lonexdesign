@@ -8,8 +8,7 @@ import React from "react";
 
 const components: Record<string, React.ComponentType<any>> = {
     "button": Components.Btn,
-    "alert": Components.Alert,
-    // "card": Components.Card,
+    "alert": Components.Alert
 };
 
 export default async function componentsLibrary({ searchParams }: { searchParams: Promise<{ component?: string }> }) {
@@ -43,7 +42,6 @@ export default async function componentsLibrary({ searchParams }: { searchParams
                     <span className={styles.subtitle}>COMPONENTS</span>
                     <ul className={styles.componentList}>
                         <Link href="?component=btn"><li className={styles.componentItem}>Buttons</li></Link>
-                        {/* <Link href="?component=card"><li className={styles.componentItem}>Cards</li></Link> */}
                         <Link href="?component=alert"><li className={styles.componentItem}>Alerts</li></Link>
                         <li className={styles.componentItem}>Modals</li>
                         <li className={styles.componentItem}>Forms</li>
@@ -56,30 +54,7 @@ export default async function componentsLibrary({ searchParams }: { searchParams
                         <li className={styles.componentItem}>Motion</li>
                     </ul>
                 </aside>
-                <main className={styles.mainContent}>
-                    <section className={styles.componentHeader}>
-                        <div className={styles.breadcrumb}>
-                            <span className={styles.breadcrumbItem}>Components</span>
-                            <span className={styles.breadcrumbItem}>{componentData.category}</span>
-                        </div>
-                        <h1>{componentData.name}</h1>
-                        <p>{componentData.description}</p>
-                    </section>
-                    <section className={styles.previewStage}>
-                        <div className="canvas">
-                            {Component ? <Component /> : <div>Component not found</div>}
-                        </div>
-                    </section>
-                    <section className={styles.codePreview}>
-                        <div className={styles.codeBlock}>
-                            <code>{componentData.code}</code>
-                        </div>
-                    </section>
-                </main>
-                <aside className={[styles.sidebar, styles.controls].join(" ")}>
-                    <h3>Properties</h3>
-                    <ControlsWithPreview Component={Component} propOptions={propOptions} />
-                </aside>
+                <ControlsWithPreview Component={Component} propOptions={propOptions} componentData={componentData} />
             </div>
         </main>
     );
