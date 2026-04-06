@@ -104,8 +104,7 @@ h1.hero_heading::after {
   margin-top: 30px;
 }
 
-.hero .cta-row a.btn,
-.btn {
+.hero .cta-row a.btn {
   background-color: var(--foreground);
   color: var(--background);
   border: 1px solid var(--border);
