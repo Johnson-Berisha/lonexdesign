@@ -29,6 +29,7 @@ export default function ControlsWithPreview({ Component, propOptions, componentD
         propOptions.forEach((option) => {
             if (option.type === "select" && option.default) {
                 selected[option.name] = option.default;
+                console.log(`Setting default for ${option.name}: ${option.default}`);
             }
             if (option.type === "toggle" && typeof option.default === "boolean") {
                 toggled[option.name] = option.default;
