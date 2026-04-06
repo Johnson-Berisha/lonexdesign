@@ -1,8 +1,28 @@
 .btnPrimary {
     background-color: var(--box);
-    padding: 10px 20px;
-    border-radius: 500px;
+    padding: 10px 30px;
+    border-radius: 8px;
     border: 1px solid var(--border);
+}
+
+.btnSecondary {
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.103);
+    padding: 10px 30px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.btnTertiary {
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 10px 30px;
+    border: var(--border) 1px solid;
+    color: var(--text-muted);
+}
+
+.btnRounded {
+    border-radius: 500px;
 }
 
 .alert {
