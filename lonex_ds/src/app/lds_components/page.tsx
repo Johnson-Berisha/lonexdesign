@@ -45,7 +45,6 @@ export default async function componentsLibrary({ searchParams }: { searchParams
                         <Link href="?component=alert"><li className={styles.componentItem}>Alerts</li></Link>
                         <li className={styles.componentItem}>Modals</li>
                         <li className={styles.componentItem}>Forms</li>
-                        <li className={styles.componentItem}>Typography</li>
                     </ul>
                     <span className={styles.subtitle}>TOKENS</span>
                     <ul className={styles.componentList}>
