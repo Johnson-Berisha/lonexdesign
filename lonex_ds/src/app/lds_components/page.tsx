@@ -8,7 +8,8 @@ import React from "react";
 
 const components: Record<string, React.ComponentType<any>> = {
     "button": Components.Btn,
-    "alert": Components.Alert
+    "alert": Components.Alert,
+    "card": Components.Card
 };
 
 export default async function componentsLibrary({ searchParams }: { searchParams: Promise<{ component?: string }> }) {
@@ -43,6 +44,7 @@ export default async function componentsLibrary({ searchParams }: { searchParams
                     <ul className={styles.componentList}>
                         <Link href="?component=btn"><li className={styles.componentItem}>Buttons</li></Link>
                         <Link href="?component=alert"><li className={styles.componentItem}>Alerts</li></Link>
+                        <Link href="?component=card"><li className={styles.componentItem}>Cards</li></Link>
                         <li className={styles.componentItem}>Modals</li>
                         <li className={styles.componentItem}>Forms</li>
                     </ul>
