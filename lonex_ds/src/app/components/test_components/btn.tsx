@@ -10,8 +10,8 @@ interface BtnProps {
 }
 
 const Btn: React.FC<BtnProps> = ({ variant = 'primary', size = 'md', rounded = false, disabled = false, label = 'Button' }) => {
-    let btnClass = styles.btn + ' ' + (variant === 'primary' ? styles.btnPrimary : variant === 'secondary' ? styles.btnSecondary : styles.btnTertiary);
-    const btnSize = size === 'sm' ? styles.btnSm : size === 'lg' ? styles.btnLg : styles.btnMd;
+    let btnClass = styles.btn + ' ' + styles[`btn${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+    const btnSize = styles[`btn${size.charAt(0).toUpperCase() + size.slice(1)}`];
     if (rounded) {
         btnClass += ` ${styles.btnRounded}`;
     }
