@@ -43,6 +43,12 @@ export default function ControlsWithPreview({ Component, propOptions, componentD
     const [selectedValues, setSelectedValues] = React.useState<Record<string, any>>(defaults.selected);
     const [toggledProps, setToggledProps] = React.useState<Record<string, boolean>>(defaults.toggled);
 
+    // Reset state when component changes (propOptions changes)
+    React.useEffect(() => {
+        setSelectedValues(defaults.selected);
+        setToggledProps(defaults.toggled);
+    }, [componentData.name]);
+
     return (
         <>
             <main className={styles.mainContent}>
