@@ -12,7 +12,7 @@ const Nav: React.FC = () => (
                 <Link href="/about">About</Link>
             </li>
             <li>
-                <Link href="/contact">Contact</Link>
+                <Link href="/docs">Docs</Link>
             </li>
             <li>
                 <Link href="/lds_components" className={styles.primary}>
