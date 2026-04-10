@@ -17,6 +17,7 @@ export default function Card({ variant = 'normal', alert, image }: CardProps) {
             </div>
             <div className={styles.qnContent}>
                 Lorem ipsum dolor sit amet consectetur.
+                {alert && <div className={`${styles.alertDanger} ${styles.alertMini}`}>Failed!</div>}
             </div>
         </div>;
     }
@@ -25,6 +26,6 @@ export default function Card({ variant = 'normal', alert, image }: CardProps) {
         <h3>Card Title</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
         <Btn variant="primary" label="Click Me" />
-        {alert && <div className={`${styles.alertWarning} ${styles.alertMini}`}>Dont do that!</div>}
+        {alert && <div className={`${styles.alertWarning} ${styles.alertMini}`}>Don't do that!</div>}
     </div>;
 }

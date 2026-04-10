@@ -115,5 +115,8 @@
 
 .qnContent {
     padding: 10px;
+    gap: 5px;
     text-align: center;
+    display: grid;
+    place-items: center;
 }
