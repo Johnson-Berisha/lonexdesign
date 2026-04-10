@@ -41,16 +41,24 @@ export default async function componentsLibrary({ searchParams }: { searchParams
                 <aside className={styles.sidebar}>
                     <span className={styles.subtitle}>COMPONENTS</span>
                     <ul className={styles.componentList}>
-                        <Link href="?component=btn"><li className={styles.componentItem}>Buttons</li></Link>
+                        {/* <Link href="?component=btn"><li className={styles.componentItem}>Buttons</li></Link>
                         <Link href="?component=alert"><li className={styles.componentItem}>Alerts</li></Link>
-                        <Link href="?component=card"><li className={styles.componentItem}>Cards</li></Link>
+                        <Link href="?component=card"><li className={styles.componentItem}>Cards</li></Link> */}
 
                         <details>
                             <summary className={styles.componentItem}>Atoms</summary>
-                            <ul className={styles.componentList}>
+                            <ul className={`${styles.componentList} ${styles.listInsideDropdown}`}>
                                 <Link href="?component=btn"><li className={styles.componentItem}>Buttons</li></Link>
                                 <Link href="?component=alert"><li className={styles.componentItem}>Alerts</li></Link>
                                 <Link href="?component=card"><li className={styles.componentItem}>Cards</li></Link>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary className={styles.componentItem}>Molecules</summary>
+                            <ul className={`${styles.componentList} ${styles.listInsideDropdown}`}>
+                                <Link href="#"><li className={styles.componentItem}>Searchbar</li></Link>
+                                <Link href="#"><li className={styles.componentItem}>Form</li></Link>
+                                <Link href="#"><li className={styles.componentItem}>Dropdowns</li></Link>
                             </ul>
                         </details>
                     </ul>

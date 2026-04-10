@@ -22,7 +22,7 @@
     display: block;
 }
 
-.componentList {
+.componentList:not(.listInsideDropdown) {
     margin-bottom: 3rem;
 }
 
@@ -38,6 +38,10 @@
     cursor: pointer;
 }
 
+details summary.componentItem {
+    font-weight: 600;
+}
+
 details summary::before {
     content: ">";
     display: inline-block;
@@ -50,7 +54,8 @@ details[open] summary::before {
 }
 
 details .componentList {
-    margin-left: 20px;
+    margin-left: 30px;
+    font-size: 16px;
 }
 
 /* content */
