@@ -9,7 +9,7 @@ export default function Card() {
         <h3>Card Title</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
         {/* name Btn will become ldsBtn in future */}
-        <Alert variant="info" />
+        <div className={styles.alertWarning + ' ' + styles.alertMini}>Dont do that!</div>
         <Btn variant="primary" label="Click Me" />
     </div>;
 }
