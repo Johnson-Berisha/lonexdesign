@@ -74,6 +74,12 @@
     border: 1px solid #c3b52e;
 }
 
+.alertMini {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 500px;
+}
+
 /* card */
 .card {
     background-color: var(--box);
