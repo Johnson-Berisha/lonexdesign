@@ -2,7 +2,6 @@
     font-size: 14px;
     cursor: pointer;
     color: white;
-    transition: .5s ease;
     border-radius: 8px;
 
     /* default */
@@ -47,7 +46,6 @@
 .alert {
     padding: 15px;
     border-radius: 10px;
-    transition: .5s ease;
 
     /* default */
     background-color: #c32e2e4f;
@@ -90,7 +88,6 @@
     display: grid;
     gap: 10px;
     max-width: 300px;
-    transition: .5s ease;
 }
 
 .fakeImage {
