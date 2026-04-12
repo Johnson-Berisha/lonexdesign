@@ -3,7 +3,6 @@ import { fetchComponent } from "@/lib/fetchComponents";
 import { parseComponentProps } from "@/lib/parseProps";
 import ControlsWithPreview from "./ControlsWithPreview";
 import Link from "next/link";
-import React from "react";
 
 export default async function componentsLibrary({ searchParams }: { searchParams: Promise<{ component?: string }> }) {
     const resolvedSearchParams = await searchParams;
@@ -33,9 +32,7 @@ export default async function componentsLibrary({ searchParams }: { searchParams
                 <aside className={styles.sidebar}>
                     <span className={styles.subtitle}>COMPONENTS</span>
                     <ul className={styles.componentList}>
-                        {/* <Link href="?component=btn"><li className={styles.componentItem}>Buttons</li></Link>
-                        <Link href="?component=alert"><li className={styles.componentItem}>Alerts</li></Link>
-                        <Link href="?component=card"><li className={styles.componentItem}>Cards</li></Link> */}
+
 
                         <details>
                             <summary className={styles.componentItem}>Atoms</summary>
