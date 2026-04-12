@@ -146,3 +146,17 @@
     outline: none;
     border-color: var(--primary);
 }
+
+/* links */
+.link {
+    color: white;
+    font-weight: 500;
+}
+
+.linkHover:hover {
+    text-decoration: underline;
+}
+
+.link-primary:hover {
+    color: var(--primary);
+}
