@@ -53,7 +53,7 @@ export default function Home() {
             </div>
           </div>
           <div className="decorative-code">
-            import Son from '@son-ds/core';
+            import SDSButton from '@son-ds/react';
           </div>
         </div>
 
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="terminal-body">
           <code>
             <span style={{ color: '#71717a' }}>$</span>
-            <span className="command">npm install</span> @son-ds/core
+            <span className="command">npm install</span> @son-ds/react
           </code>
           <Link href="#" className="copy-btn">
             Copy
