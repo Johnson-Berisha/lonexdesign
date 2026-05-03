@@ -2,6 +2,7 @@ import ThemeToggle from "./components/theme/themeBtn";
 import Link from "next/link";
 // tersting components in ui
 import Btn from "./components/test_components/btn";
+import { SDSButton } from "@son-ds/react";
 export default function Home() {
   return (
     <div>
@@ -15,7 +16,6 @@ export default function Home() {
           <Link href="/lds_components" className="btn btn-secondary">
             View Components
           </Link>
-          <Btn label="Get Started" variant="primary" />
         </div>
       </div>
       <div className="bento-container">
