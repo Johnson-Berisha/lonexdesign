@@ -10,12 +10,15 @@ export default function Home() {
         <h1 className="hero_heading">son-ds</h1>
         <p>A modern design system for building beautiful interfaces.</p>
         <div className="cta-row">
-          <Link href="#get-started" className="btn">
+          {/* <Link href="#get-started" className="btn">
             Get Started
           </Link>
           <Link href="/lds_components" className="btn btn-secondary">
             View Components
-          </Link>
+          </Link> */}
+          <SDSButton variant="primary" size="md">Get started</SDSButton>
+          <SDSButton variant="secondary" size="md">Docs</SDSButton>
+          <SDSButton variant="outline" size="md">View Components</SDSButton>
         </div>
       </div>
       <div className="bento-container">
