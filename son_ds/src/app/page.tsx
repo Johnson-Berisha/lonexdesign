@@ -3,6 +3,7 @@ import Link from "next/link";
 // tersting components in ui
 import Btn from "./components/test_components/btn";
 import { SDSButton } from "@son-ds/react";
+import { SDSAlert } from "@son-ds/react";
 export default function Home() {
   return (
     <div>
@@ -96,6 +97,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
+
       <ThemeToggle />
     </div>
   );
